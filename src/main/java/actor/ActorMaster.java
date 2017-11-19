@@ -9,7 +9,7 @@ import java.util.LinkedHashMap;
 public class ActorMaster extends AbstractActor {
 
     private static final String MASTER_ACTOR_ID = "MASTER";
-    private LinkedHashMap<String, AbstractActor> registry = new LinkedHashMap<>();
+    private final LinkedHashMap<String, AbstractActor> registry = new LinkedHashMap<>();
 
     private ActorMaster() {
         super(MASTER_ACTOR_ID);
@@ -45,10 +45,9 @@ public class ActorMaster extends AbstractActor {
         }
     }
 
-    public Boolean register(AbstractActor abstractActor) {
+    public void register(AbstractActor abstractActor) {
         registry.put(abstractActor.getName(), abstractActor);
         abstractActor.setMaster(this);
-        return true;
     }
 
     @Override
@@ -69,6 +68,6 @@ public class ActorMaster extends AbstractActor {
     }
 
     private void showMessage(String actorName, Estimation estimation) {
-
+        //TODO
     }
 }

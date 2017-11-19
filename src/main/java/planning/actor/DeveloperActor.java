@@ -12,7 +12,7 @@ import planning.actor.strategy.TrivialEstimationStrategy;
 
 public class DeveloperActor extends AbstractActor implements Developer {
 
-    private DeveloperType developerType;
+    private final DeveloperType developerType;
 
     public DeveloperActor(String name, DeveloperType developerType) {
         super(name);
@@ -26,6 +26,7 @@ public class DeveloperActor extends AbstractActor implements Developer {
             System.out.println(this.getName() + ": this story could be a " + estimation);
         }
     }
+
 
     @Override
     public Estimation estimate(Story story, EstimationStrategy strategy) {

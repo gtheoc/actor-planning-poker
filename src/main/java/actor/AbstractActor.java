@@ -9,11 +9,11 @@ public abstract class AbstractActor {
 
     private String name;
     private Boolean enableRunning;
-    private ConcurrentLinkedQueue<Message> inbox = new ConcurrentLinkedQueue<>();
+    private final ConcurrentLinkedQueue<Message> inbox = new ConcurrentLinkedQueue<>();
     private ActorMaster master;
-    private ExecutorService executor;
+    private final ExecutorService executor;
 
-    public AbstractActor(String name) {
+    protected AbstractActor(String name) {
         this.name = name;
         this.enableRunning = Boolean.TRUE;
         executor = Executors.newSingleThreadExecutor();
@@ -48,7 +48,7 @@ public abstract class AbstractActor {
                     .isRunning(() -> this.enableRunning)
                     .waitIf(() -> inbox.size() == 0)
                     .poller(() -> inbox.poll())
-                    .handler(m -> handle(m))
+                    .handler(this::handle)
                     .loop();
     }
 

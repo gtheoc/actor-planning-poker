@@ -3,7 +3,7 @@ import domain.DeveloperType;
 import planning.actor.BusinessAnalystActor;
 import planning.actor.DeveloperActor;
 
-public class PlanningPoker {
+class PlanningPoker {
 
     public static void main(String[] args) {
 

@@ -61,18 +61,6 @@ public class ActorLoop {
         return this;
     }
 
-    public Boolean getEnableSleep() {
-        return enableSleep;
-    }
-
-    public void setEnableSleep(Boolean enableSleep) {
-        this.enableSleep = enableSleep;
-    }
-
-    public String getName() {
-        return name;
-    }
-
     public ActorLoop actor(String name) {
         this.name = name;
         return this;
